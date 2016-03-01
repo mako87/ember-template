@@ -23,3 +23,10 @@ test('it renders', function(assert) {
 
   assert.equal(this.$().text().trim(), 'template block text');
 });
+
+test ("should authentication with credentials",function(assert){
+
+  this.on("authenticate",function(){
+
+  })
+});

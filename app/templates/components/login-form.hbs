@@ -1,1 +1,4 @@
-{{yield}}
+{{input type="text" value=username}}
+{{input type="password" value=password}}
+<button {{action authenticate username password}}>Invia</button>
+<p>{{errorMessage}}</p>
