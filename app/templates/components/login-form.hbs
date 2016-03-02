@@ -1,4 +1,44 @@
-{{input type="text" value=username}}
-{{input type="password" value=password}}
-<button {{action authenticate username password}}>Invia</button>
-<p>{{errorMessage}}</p>
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h2 class="ui black image">
+            <!--<img src="logo.jpg" alt="Logo" />-->
+        </h2>
+        <form class="ui large form">
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                      {{input enter=(action authenticate username password) type="text" name="email" placeholder="E-mail address" value=username}}
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                      {{input enter=(action authenticate username password) type="password" name="password" placeholder="Password" value=password}}
+                    </div>
+                </div>
+                <div {{action authenticate username password}} class="ui fluid large black submit button {{if loading 'loading disabled'}}">Login</div>
+            </div>
+
+            <div class="ui error message">
+              {{errorMessage}}
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+
+    body > .ember-view, body > .ember-view > .ember-view{
+        height: 100%;
+    }
+    .grid {
+        height: 100%;
+    }
+    .image {
+        margin-top: -100px;
+    }
+    .column {
+        max-width: 400px;
+    }
+</style>

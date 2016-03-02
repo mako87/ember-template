@@ -19,13 +19,13 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
-      'font-src': "'self' data: use.typekit.net",
-      'connect-src': "'self' ws://localhost:4200",
-      'img-src': "'self' www.facebook.com p.typekit.net",
-      'style-src': "'self' 'unsafe-inline' use.typekit.net",
-      'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
-    },
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' ",
+      'font-src': "'self' data: https://fonts.gstatic.com/ ",
+      'connect-src': "'self' ws://localhost:4000/socket.io/ http://localhost:4000",
+      'img-src': "'self' ",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com/",
+      'frame-src': "'self' "
+    }
   };
 
   if (environment === 'development') {
@@ -66,7 +66,7 @@ module.exports = function(environment) {
     refreshAccessTokens: true,
     serverTokenRefreshEndpoint: '/token-refresh',
     tokenExpireName: 'exp',
-    refreshLeeway: 30,
+    refreshLeeway: 60,
     timeFactor: 1000  // example - set to "1000" to convert incoming seconds to milliseconds.
   };
 
