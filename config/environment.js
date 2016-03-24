@@ -19,12 +19,30 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' ",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'font-src': "'self' data: https://fonts.gstatic.com/ ",
-      'connect-src': "'self' ws://localhost:4000/socket.io/ http://localhost:4000",
+      'connect-src': "'self' ws://",
       'img-src': "'self' ",
       'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com/",
       'frame-src': "'self' "
+    },
+
+    flashMessageDefaults: {
+      // flash message defaults
+      timeout: 5000,
+      extendedTimeout: 0,
+      priority: 200,
+      sticky: true,
+      showProgress: true,
+
+      // service defaults
+      type: 'alpaca',
+      types: [ 'error', 'teal' ],
+      preventDuplicates: false
+    },
+
+    moment: {
+      includeLocales: ['it']
     }
   };
 
@@ -69,6 +87,8 @@ module.exports = function(environment) {
     refreshLeeway: 60,
     timeFactor: 1000  // example - set to "1000" to convert incoming seconds to milliseconds.
   };
+
+
 
   return ENV;
 };
